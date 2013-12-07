@@ -10,7 +10,7 @@ KICAD_DIRECTORY=kicad
 KICAD_BRANCH="lp:kicad"
 # KICAD_BRANCH="lp:~cern-kicad/kicad/testing"
 # KICAD_BRANCH="lp:~kicad-testing-committers/kicad/testing"
-LIBRARY_DIRECTORY=library
+LIBRARY_DIRECTORY=library-read-only
 
 WXPYTHON_VERSION_MAJOR=2.9
 #WXPYTHON_VERSION_MINOR=5
@@ -281,7 +281,7 @@ step2()
 	test -d $SOURCE_DIRECTORY/$KICAD_DIRECTORY || (cd $SOURCE_DIRECTORY; bzr branch $KICAD_BRANCH $KICAD_DIRECTORY ; cd ..) || exit_on_build_error
 	test -d $SOURCE_DIRECTORY/$KICAD_DIRECTORY && (cd $SOURCE_DIRECTORY/$KICAD_DIRECTORY; bzr pull; cd ..) || exit_on_build_error
 
-	test -d $SOURCE_DIRECTORY/$LIBRARY_DIRECTORY || (cd $SOURCE_DIRECTORY; bzr branch lp:~kicad-lib-committers/kicad/library ; cd ..) || exit_on_build_error
+	test -d $SOURCE_DIRECTORY/$LIBRARY_DIRECTORY || (cd $SOURCE_DIRECTORY; bzr branch lp:~dickelbeck/kicad/library-read-only ; cd ..) || exit_on_build_error
 	test -d $SOURCE_DIRECTORY/$LIBRARY_DIRECTORY && (cd $SOURCE_DIRECTORY/$LIBRARY_DIRECTORY; bzr pull; cd ..) || exit_on_build_error
 
         # Patches should be named NN_kicad_patchname.patch or NN_cern-kicad_patchname.patch
